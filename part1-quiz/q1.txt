@@ -1,0 +1,11 @@
+Download python script and execute it with python3 portscan_server_obf.py. This will start a server at a random port between 20050 and 20150.
+Use your newly implemented port scanner to scan the ports between 20050 and 20150 with the localhost (your computer) as an address.
+The port contains a secret message. What is it about?
+
+a)
+b)
+c)Best Act Ever  by internet users at the MTV Europe Music Awards 2008.
+d)
+
+Çıkan şey:
+b'Never gonna give you up!\n'

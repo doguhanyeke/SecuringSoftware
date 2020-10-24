@@ -1,0 +1,18 @@
+Download python script and execute it with python3 quest_server_obf.py. This will start a server at port 31338.
+The protocol starts with you writing the message "HMM?" to the server followed by enter. Don't forget the question mark. Determine the rest of the protocol -- you will likely want to use telnet here.
+Note that some telnet clients will print back what you are typing and some telnet clients (like windows 10 telnet) may not.
+When following the correct protocol, how many messages do you receive from the server? You may assume that the server writes "Incorrect protocol. Bye." if you do not follow the correct protocol.
+
+1
+2
++3
+4
+
+Cevap:
+doguhanyeke@Doguhan-MacBook-Pro Downloads % nc localhost 31338
+HMM?
+Well hello there (say 'Hi' back).
+Hi
+How much is 37 + 5?
+42
+Indeed it is. Have a nice day.

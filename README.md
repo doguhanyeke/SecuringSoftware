@@ -1,26 +1,26 @@
 Course:
 https://cybersecuritybase.mooc.fi
 
-* Introduction to Cyber Security
-  ** Part I
+# Introduction to Cyber Security
+  ## Part I
 
-* Securing Software
-  ** Part I
-  ** Part II
-  ** Part III
-  ** Part IV
-  ** Part V
-  ** Part VI
+# Securing Software
+  ## Part I
+  ## Part II
+  ## Part III
+  ## Part IV
+  ## Part V
+  ## Part VI
 
-* Project I
+# Project I
 
-* Advanced Topics
-  ** Part I
-  ** Part II
-  ** Part III
-  ** Part IV
-  ** Part V
+# Advanced Topics
+  ## Part I
+  ## Part II
+  ## Part III
+  ## Part IV
+  ## Part V
 
-* Project II
+# Project II
 
-* CTF
+# CTF

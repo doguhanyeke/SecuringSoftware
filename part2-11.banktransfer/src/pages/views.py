@@ -5,11 +5,16 @@ from .models import Account
 
 
 # Create your views here.
-
+@transaction.atomic
 def transfer(sender, receiver, amount):
+	if(amount < 0):
+		return
+	
 	acc1 = Account.objects.get(iban=sender)
 	acc2 = Account.objects.get(iban=receiver)
 
+	if((amount > acc1.balance) or (amount > acc2.balance)):
+		return
 
 	acc1.balance -= amount
 	acc2.balance += amount

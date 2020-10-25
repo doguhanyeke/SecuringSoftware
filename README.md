@@ -3,7 +3,7 @@ https://cybersecuritybase.mooc.fi
 
 ## Introduction to Cyber Security
 ### Part I
-Lots of quizzes. Read but quizzes skipped.
+Content is read but quizzes are skipped.
 
 ## Securing Software
 ### Part I

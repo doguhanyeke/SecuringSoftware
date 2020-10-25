@@ -21,10 +21,23 @@
         <!-- the javascript has been embedded to the same site -->
         <script inline="javascript">
             // The URL to the application server that holds the tasks.
-            var url = null;
+            var url = "/tasks";
 
             function loadTasks() {
                 // Write loading code here 
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                        var response = JSON.parse(xmlHttp.responseText);
+                        response.tasks.forEach(element => {
+                            var list_ele = document.createElement("li");
+                            list_ele.appendChild(document.createTextNode(element.name))
+                            document.querySelector("#tasks").appendChild(list_ele)
+                        });
+                    }
+                }
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
             }
 		</script>
 

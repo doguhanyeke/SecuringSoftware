@@ -1,0 +1,26 @@
+The Byteless, your favourite rock band is concluding their world tour! Their tour manager has indicated that the 100 fastest fans can sign up to the conclusion concert at the awesome site. It seems, however, that the concert is already fully booked. You want to get in -- figure out a way to do it.
+Each person who signs up to the concert receives a unique key that can be used to retrieve the backstage passes. What is your key?
+
+
+website: https://cybersecuritybase.mooc.fi/public/byteless/consert.html
+In case of deletion:
+--------------------
+Byteless logo
+
+Your favourite band is back in town.
+
+Get your own backstage pass.
+
+There are only 0 passes left.
+
+<button> Get your own pass </button>
+
+When clicked: No more passes for you.
+
+Çözüm consoledan:
+seats = 1
+validate()
+
+
+Şifre:
+Your passI get a byte with a little help from my friends.

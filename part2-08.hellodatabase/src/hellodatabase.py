@@ -8,10 +8,12 @@ def read_database(conn):
 
 	# output should be a list of pairs
 	# agents = [(id1, name1), (id2, name2), (id3, name3), ...] ordered by id
-
-
+	result = conn.execute("Select id, name from Agent order by id")
+	for row in result:
+		agents.append(row)
+	conn.close()
 	# write code here
-
+	
 	return agents
 
 

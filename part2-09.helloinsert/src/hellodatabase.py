@@ -4,18 +4,24 @@ import sqlite3
 
 
 def add_agent(conn, aid, name):
-	pass # write code here, don't forget to commit results once you execute the insert
+	# write code here, don't forget to commit results once you execute the insert
+	conn.execute("Insert into Agent Values (?, ?)", (aid, name))
+	conn.commit()
 
 
 def delete_agent(conn, aid):
-	pass # write code here, don't forget to commit results once you execute the insert
-
+	# write code here, don't forget to commit results once you execute the insert
+	conn.execute("Delete from Agent where ? == id", (aid, ))
+	conn.commit()
 
 def read_database(conn):
 	agents = []
 
 	# output should be a list of pairs agents = [(id1, name1), (id2, name2), (id3, name3), ...] ordered by id
 	# write code here
+	result = conn.execute("Select id, name from Agent order by id")
+	for row in result:
+		agents.append(row)
 
 	return agents
 

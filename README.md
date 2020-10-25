@@ -1,26 +1,29 @@
-Course:
+Course web site:
 https://cybersecuritybase.mooc.fi
 
-# Introduction to Cyber Security
-  ## Part I
+## Introduction to Cyber Security
+### Part I
+Lots of quizzes. Read but quizzes skipped.
 
-# Securing Software
-  ## Part I
-  ## Part II
-  ## Part III
-  ## Part IV
-  ## Part V
-  ## Part VI
+## Securing Software
+### Part I
+2 quiz and 6 PA done.
 
-# Project I
+### Part II
+### Part III
+### Part IV
+### Part V
+### Part VI
 
-# Advanced Topics
-  ## Part I
-  ## Part II
-  ## Part III
-  ## Part IV
-  ## Part V
+## Project I
 
-# Project II
+## Advanced Topics
+### Part I
+### Part II
+### Part III
+### Part IV
+### Part V
 
-# CTF
+## Project II
+
+## CTF

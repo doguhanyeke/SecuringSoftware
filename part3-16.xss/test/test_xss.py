@@ -40,8 +40,9 @@ class XssTest(LiveServerTestCase):
 		options = Options()
 		options.headless = True
 		options.add_argument('--no-sandbox')
-		options.add_argument('--user-data-dir=test/chrome_user_data')
-		driver = webdriver.Chrome(port=self.free_port(), options=options)
+		caps = webdriver.DesiredCapabilities.CHROME.copy()
+		caps['goog:loggingPrefs'] = { 'browser':'ALL' }
+		driver = webdriver.Chrome(port=self.free_port(), options=options, desired_capabilities=caps)
 		driver.get(self.live_server_url + '/login/')
 
 		username = driver.find_elements_by_name('username')[0]
@@ -60,12 +61,14 @@ class XssTest(LiveServerTestCase):
 				break
 			time.sleep(0.1)
 
-		self.assertEqual(Mail.objects.count(), 1, "One mail message is expected")
+		log = '\n'.join([str(entry) for entry in driver.get_log('browser')])
+
+		self.assertEqual(Mail.objects.count(), 1, msg='One mail message is expected\nBROWSER LOGS:\n'+log)
 
 		m = Mail.objects.get()
 		raw = json.loads(m.content)['content']
 		stolen = SimpleCookie()
 		stolen.load(raw)
 
-		self.assertEqual(cookies['csrftoken'], stolen['csrftoken'].value)
-		self.assertEqual(cookies['sessionid'], stolen['sessionid'].value)
+		self.assertEqual(cookies['csrftoken'], stolen['csrftoken'].value, msg='\nBROWSER LOGS:\n'+log)
+		self.assertEqual(cookies['sessionid'], stolen['sessionid'].value, msg='\nBROWSER LOGS:\n'+log)

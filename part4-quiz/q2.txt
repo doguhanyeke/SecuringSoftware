@@ -1,0 +1,10 @@
+What types of effects could 
+overwriting the instruction pointer lead to?
+
+a)Run malicious code
+b)DoS
+c)Rule the world!
+d)Nothing.
+e)Infinite loop with ip shows itself
+
+Answer: e is wrong only.

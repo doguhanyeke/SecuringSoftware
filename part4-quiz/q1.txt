@@ -1,0 +1,18 @@
+Assume that you have C code with an uint16_t type variable 
+and that you wrote 160 bits into it with a careless
+ memcpy operation. The memcpy is documented as follows:
+DESCRIPTION
+The memcpy() function copies n bytes from memory area src
+ to memory area dest. The memory areas must not overlap. 
+ Use memmove(3) if the memory areas do overlap.
+Which of the following options may occur? 
+Note that depending on your reasoning, 
+there may be more than one correct answer!
+
+a)Bits that do not fit discarded.
+b)Segmentation fault.
+c)Some local variables may be overwritten.
+d)The process execution flaw may change.
+e)Something that is located directly after the variable is overwritten.
+
+Answer: all
